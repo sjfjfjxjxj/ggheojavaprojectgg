@@ -1,5 +1,5 @@
 package com.kh.day05.array;
-
+//얜 그나마 잘 알겠다
 public class Exam_SortBubble {
     public static void main(String[] args) {
     	//정렬 알고리즘 3. 버블정렬
