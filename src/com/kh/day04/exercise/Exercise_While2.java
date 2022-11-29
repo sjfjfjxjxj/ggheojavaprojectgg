@@ -13,7 +13,7 @@ public class Exercise_While2 {
 				int i = 1;
 				while (i <= 9) {
 					System.out.println(input + " * " + i + " = " + input * i);
-					i++;
+					i++;  //☆☆중요!! 잘 빼먹는것. 안써주면 무한으로 나오거나 출력이 안됨
 				}
 			} else {
 				System.out.println("1~9 사이의 정수가 아니예요. 다시 한 번 입력하세요.");
