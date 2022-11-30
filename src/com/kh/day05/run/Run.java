@@ -14,6 +14,6 @@ public class Run {
     	Exercise_Array exArr = new Exercise_Array();
     //	exArr.exercise1();
     //	exArr.exercise2();
-    	exArr.exercise5();
+    	exArr.exercise7();
     }
 }

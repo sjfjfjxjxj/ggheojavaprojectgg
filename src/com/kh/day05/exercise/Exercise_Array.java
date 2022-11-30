@@ -88,4 +88,39 @@ public class Exercise_Array {
 		}
 
 	}
+
+	public void exercise6() {
+        int [] nums = {1, 2, 3, 4, 5};
+     // for(int i = 0; i < nums.length; i++) {
+      //  	System.out.print(nums[i] + " ");   이렇게 쓰던것을 ->
+       	for (int num : nums) {    //for-each로 좀더 간단하게 쓸수있음
+       		System.out.print(num + " "); //인덱스값 컨트롤할땐 포이치안쓰는게 낫다
+        }
+    }
+
+    public void exercise7() {
+    	String [] fruits = {"딸기", "복숭아", "포도", "체리", "망고"};
+    //	for(int i = 0; i < fruits.length; i++) {
+    //		System.out.print(fruits[i] + " ");
+    //	}
+        for(String fruit : fruits) {
+        	System.out.print(fruit + " ");   //포이치 연습
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

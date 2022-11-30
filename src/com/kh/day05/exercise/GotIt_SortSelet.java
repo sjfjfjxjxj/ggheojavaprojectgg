@@ -1,6 +1,6 @@
 package com.kh.day05.exercise;
 
-public class X_GotIt_SortSelet {
+public class GotIt_SortSelet {
     public static void main(String[] args) {
     	//선택정렬
     	//배열 전부 검색->최소값 골라서 자리바꿈->왼쪽부터 채움
@@ -15,13 +15,13 @@ public class X_GotIt_SortSelet {
     	for(int i = 0; i < arrs.length; i++) {
     		min = i; //제일 앞에값 i로 초기화
     		for(int j = i+1; j < arrs.length; j++ ) {
-    			if(arrs[min] > arrs[j]) { //(배열속전부비교해서)맨 앞에 애가 j자리애보다 크면
-    				min = j; //맨앞에 애자리에 j를낑겨넣음
+    			if(arrs[min] > arrs[j]) { //(배열속전부비교해서)min이라는 자리애가 다른 자리 애랑 
+    				min = j; // j칸이 min으로 간다
     			}
     		}
-    		int temp = arrs[min]; //미니멈 값 확정됐으니까 시초값 안잃어버리게 temp에 저장
-    		arrs[min] = arrs[i]; //그다음 자리 값을 다시 미니멈값 바꿈 
-    		arrs[i] = temp; // 그리고 원래 i자리값에는 맨처음 temp를 넣음
+    		int temp = arrs[min]; // 그래서 지금 min값인 좀전 j값을 temp로 저장을 하고
+    		arrs[min] = arrs[i]; // 그 다음자리 애 값을 새로운 미니멈값으로 정한다(맨앞자리는 정해졌으니까)
+    		arrs[i] = temp; // 그리고 자리 바꾸기!!! 알겟다ㅏㅏㅏㅏㅏㅏ
     	}
     	for(int i = 0; i < arrs.length; i++) {   //그래서 i0~i3 돌린 값을 차례대로 출력
     		System.out.println(arrs[i] + " ");
