@@ -3,7 +3,7 @@ package com.kh.day06.exercise;
 import java.util.Scanner;
 
 public class Exercise_ScoreProgram2 {
-	static int korean = 0;
+	static int korean = 0; //변수를 바로 사용하기위해 static 붙임
 	static int english = 0;
 	static int math = 0; //전역변수(=클래스변수) 선언
     public static void main(String [] args) {
@@ -26,8 +26,8 @@ public class Exercise_ScoreProgram2 {
     			printException();
     			break;
     		}
-    	}
-    }   //메인에서 바로 쓸라면 스태틱을 붙여야한대
+    	}//static을 너무 많이 쓰면 용량 커져서 작동 잘 안된대.
+    }   //메인에서 바로 쓸라면 스태틱을 붙여야한대. 뉴 안붙여도 되게끔
     public static void printMenu() {
     	System.out.println("===== 메인 메뉴 =====");
 		System.out.println("1. 성적입력");

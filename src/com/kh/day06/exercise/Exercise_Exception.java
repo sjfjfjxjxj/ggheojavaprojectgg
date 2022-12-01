@@ -42,7 +42,7 @@ public class Exercise_Exception {
         		num = sc.nextInt();
         	}catch(InputMismatchException e) {
         	      System.out.println("정수 아닙니다. 다시 입력하셍: ");	
-        	      sc.next(); //입력 i 횟수 줄지 않게끔 
+        	      sc.next(); //입력한 이상한글자 제거
         	      i--; //이게 있어야 잘못입력한 턴의 똑같은 i에 옳은 숫자 넣을수 있으니까!
         	      continue; //이거 없으면 계속 더해버림. 잘못입력했을때 sum += num; 스킵하게 하기
         	} //[컨티뉴 = 이 밑에건 실행하지 마세요!] 의 뜻

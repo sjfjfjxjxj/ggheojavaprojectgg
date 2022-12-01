@@ -1,0 +1,24 @@
+package com.kh.day07.student;
+
+public class StudentRun {
+	public static void main(String[] args) {
+		StudentFunction sFunc = new StudentFunction();
+		int input = sFunc.printMenu();
+		End: while (true) {
+			switch (input) {
+			case 1:
+				sFunc.inputScore();
+				break;
+			case 2:
+				sFunc.printScore();
+				break;
+			case 3:
+				sFunc.goodByeMsg();
+				break End;
+			case 4:
+				sFunc.exceptionMsg();
+				break;
+			}
+		}
+	}
+}
