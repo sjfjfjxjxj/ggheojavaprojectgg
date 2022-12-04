@@ -15,9 +15,15 @@ public class run {
     		    case 2 : 
     		    	sCatf.printCat();
     		    	break;
-    		    case 3 : break;
-    		    case 4 : break EXIT;
-    		    default : break;
+    		    case 3 : 
+    		    	sCatf.printKcal();
+    		    	break;
+    		    case 4 : 
+    		    	sCatf.printExit();
+    		    	break EXIT;
+    		    default :
+    		    	sCatf.printException();
+    		    	break;
     		}
     		
     		

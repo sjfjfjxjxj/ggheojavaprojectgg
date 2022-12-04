@@ -3,73 +3,109 @@ package athome.project.first.cat;
 import java.util.Scanner;
 
 public class CatFunction {
-    CatInfo [] catinfos; //°í¾çÀÌµé ¿©·¯¸¶¸® ÀúÀåÇÏ°Ô²û ¹è¿­ ¼±¾ğ
-    
-    public CatFunction() {
-        catinfos = new CatInfo[2]; //µÎ¸¶¸®¸¸ Ãâ·ÂÇØº¸ÀÚ^_T
-    }
-    
-    public int printMenu() {
-    	Scanner sc = new Scanner(System.in);
-    	System.out.println("-----°í¾çÀÌ ÇÏ·çÄ¡ »ç·á ¾ç °è»êÇÏ±â-----");
-    	System.out.println("1. °í¾çÀÌ Á¤º¸ ÀÔ·Â");
-        System.out.println("2. °í¾çÀÌ Á¤º¸ Ãâ·Â");
-        System.out.println("3. Ä®·Î¸® Ãâ·Â ¹× »ç·á ¾ç °è»ê");
-        System.out.println("4. ÇÁ·Î±×·¥ Á¾·á");
-        System.out.println("¸Ş´º ÀÔ·Â : ");
-        int menu = sc.nextInt();
-        return menu;
-    }
-    
-    public void inputCat() {
-    	Scanner sc = new Scanner(System.in);
-    	for(int i = 0; i<catinfos.length; i++) {
-    		System.out.println("-----" + (i+1) + "¹øÂ° °í¾çÀÌ Á¤º¸ ÀÔ·Â-----");
-    		System.out.println("°í¾çÀÌ ÀÌ¸§: ");
-    		String name = sc.next();
-    		System.out.println("°í¾çÀÌ Ã¼Áß(kg): ");
-    		double weight = sc.nextInt();
-    		System.out.println("°í¾çÀÌ ³ªÀÌ(1¼¼¹Ì¸¸:0 / 1¼¼ÀÌ»ó:1 / 11¼¼ÀÌ»ó:2) : ");
-    		int age = sc.nextInt();
-    		System.out.println("°í¾çÀÌ Áß¼ºÈ­ ¿©ºÎ(y/n): ");
-    		char neutral = sc.next().charAt(0);
-    		catinfos[i] = new CatInfo(); //°í¾çÀÌ Á¤º¸µéÀ» ÀúÀåÇÏÀÚ
-    		catinfos[i].setName(name);
-    		catinfos[i].setWeight(weight);
-    		catinfos[i].setAge(age);
-    		catinfos[i].setNeutral(neutral);   				
-    	}
-    }
-    
-    public void printCat() {
-    	for(int i = 0; i<catinfos.length; i++) {
-    		System.out.println("-----" + (i+1) + "¹øÂ° °í¾çÀÌ Á¤º¸ Ãâ·Â-----");
-    		System.out.println("¾Ö±â " + catinfos[i].getName() + "ÀÇ Á¤º¸");
-    		System.out.println("Ã¼Áß: " + catinfos[i].getWeight() );
-    		System.out.println("³ªÀÌ: " + catinfos[i].getAge() ); //¿©±â ¾îÂ¼Áö
-    		System.out.println("Áß¼ºÈ­ ¿©ºÎ: " + catinfos[i].getNeutral() );
-    	}
-    }
-    
-    public void printKcal() {
-    	for(int i = 0; i < catinfos.length; i++) {
-    		int active = 0;
-    		if(catinfos[i].getAge() == 0) {¾Æ±â°í¾çÀÌ. 2.5°¡ È°µ¿°è¼ö}
-    		else if(catinfos[i].getAge()>=11) {³ë·É¹¦. 1.2·Î }
-    		else {Áß¼ºÈ­ÇßÀ½ 1.2, ¹ÌÁß¼ºÈ­ 1.4} //1~10»ì
-    		
-    		System.out.println("-----" + (i+1) + "¹øÂ° °í¾çÀÌÀÇ ÇÏ·ç ÇÊ¿ä Ä®·Î¸®-----");
-    		System.out.println(catinfos[i].getName()+"Àº ÇÏ·ç¿¡ "+((30*catinfos[i].getWeight()+70)*È°µ¿°è¼ö°ª)  + "kcal ÀÌ ÇÊ¿äÇØ¿ä.");
-    	}
-    }
-    
-    public void printExit() {}
-    
+	CatInfo[] catinfos; // ê³ ì–‘ì´ë“¤ ì—¬ëŸ¬ë§ˆë¦¬ ì €ì¥í•˜ê²Œë” ë°°ì—´ ì„ ì–¸
+
+	public CatFunction() {
+		catinfos = new CatInfo[2]; // ë‘ë§ˆë¦¬ë§Œ ì¶œë ¥í•´ë³´ì^_T
+	}
+
+	public int printMenu() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("-----ê³ ì–‘ì´ í•˜ë£¨ì¹˜ ì‚¬ë£Œ ì–‘ ê³„ì‚°í•˜ê¸°-----");
+		System.out.println("1. ê³ ì–‘ì´ ì •ë³´ ì…ë ¥");
+		System.out.println("2. ê³ ì–‘ì´ ì •ë³´ ì¶œë ¥");
+		System.out.println("3. ì¹¼ë¡œë¦¬ ì¶œë ¥ ë° ì‚¬ë£Œ ì–‘ ê³„ì‚°");
+		System.out.println("4. í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
+		System.out.println("ë©”ë‰´ ì…ë ¥ : ");
+		int menu = sc.nextInt();
+		return menu;
+	}
+
+	// ê³ ì–‘ì´ë“¤ ì •ë³´ ì…ë ¥ë°›ì•„ì„œ setterì— ì €ì¥
+	public void inputCat() {
+		Scanner sc = new Scanner(System.in);
+		for (int i = 0; i < catinfos.length; i++) {
+			System.out.println("-----" + (i + 1) + "ë²ˆì§¸ ê³ ì–‘ì´ ì •ë³´ ì…ë ¥-----");
+			System.out.println("ê³ ì–‘ì´ ì´ë¦„: ");
+			String name = sc.next();
+			System.out.println("ê³ ì–‘ì´ ì²´ì¤‘(kg): ");
+			double weight = sc.nextInt();
+			System.out.println("ê³ ì–‘ì´ ë‚˜ì´ ì„ íƒ (1ì„¸ë¯¸ë§Œ:1 / 1ì„¸ì´ìƒ:2 / 11ì„¸ì´ìƒ:3) : ");
+			int age = sc.nextInt();
+			System.out.println("ê³ ì–‘ì´ ì¤‘ì„±í™” ì—¬ë¶€(y/n): "); //ì´ê±° ì™¸ì— ì…ë ¥í•˜ë©´ ì˜¤ë¥˜ë‚˜ì•¼í•˜ëŠ”ë° ì¶œë ¥ì´ ë¨
+			char neutral = sc.next().charAt(0);
+			catinfos[i] = new CatInfo(); // ì •ë³´ë“¤ì„ ì €ì¥í•˜ì
+			catinfos[i].setName(name);
+			catinfos[i].setWeight(weight);
+			catinfos[i].setAge(age);
+			catinfos[i].setNeutral(neutral);
+		}
+	}
+	
+    //ì €ì¥ëœ ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
+	public void printCat() {
+		for (int i = 0; i < catinfos.length; i++) {
+			System.out.println("-----" + (i + 1) + "ë²ˆì§¸ ê³ ì–‘ì´ ì •ë³´ ì¶œë ¥-----");
+			System.out.println("ì‚¬ë‘ìŠ¤ëŸ¬ìš´ " + catinfos[i].getName() + "ì˜ ì •ë³´");
+			System.out.println("ì²´ì¤‘: " + catinfos[i].getWeight());
+
+			switch (catinfos[i].getAge()) { // ì•„ ë­”ê°€ ì´ê²Œ ì•„ë‹Œê±°ê°™ì€ë°...
+			case 1:
+				System.out.println("ë‚˜ì´: 1ì„¸ ë¯¸ë§Œì˜ ì•„ê¸°ê³ ì–‘ì´");
+				break;
+			case 2:
+				System.out.println("ë‚˜ì´: 1ì„¸ ì´ìƒì˜ ì„±ë¬˜");
+				break;
+			case 3:
+				System.out.println("ë‚˜ì´: 10ì„¸ ì´ìƒì˜ ë…¸ë ¹ë¬˜");
+				break;
+			default: // ë””í´íŠ¸ëŠ” ì™œ ì•„ì˜ˆ ì¶œë ¥ì´ ì•ˆë ê¹Œ
+				System.out.println("ì˜ëª»ëœ ì •ë³´ì…ë‹ˆë‹¤. ì •ë³´ ì…ë ¥ ë©”ë‰´ë¡œ ëŒì•„ê°€ì„¸ìš©!");
+				break;
+			}
+			System.out.println("ì¤‘ì„±í™” ì—¬ë¶€: " + catinfos[i].getNeutral());
+		}
+	}
+	
+    //ì¹¼ë¡œë¦¬ ê³„ì‚°, ê·¸ëŒ ê³„ì‚°
+	public void printKcal() {
+		for (int i = 0; i < catinfos.length; i++) {
+			double e = 0;
+			if (catinfos[i].getAge() == 1) {
+				e = (30 * catinfos[i].getWeight() + 70) * 2.5; // 1ì‚´ë¯¸ë§Œ ì• ê¸°
+			} else if (catinfos[i].getAge() == 3 || (catinfos[i].getAge() == 2 && catinfos[i].getNeutral() == 'y')) {
+				e = (30 * catinfos[i].getWeight() + 70) * 1.2; // ë…¸ë ¹ë¬˜ê±°ë‚˜ ì¤‘ì„±í™”í•œ ì„±ë¬˜
+			} else {
+				e = (30 * catinfos[i].getWeight() + 70) * 1.4;
+			} // 1~10ì‚´ ì¤‘ì„±í™” ì•ˆí•œ ì„±ë¬˜
+
+			System.out.println("-----" + (i + 1) + "ë²ˆì§¸ ê³ ì–‘ì´ì˜ í•˜ë£¨ í•„ìš” ì¹¼ë¡œë¦¬-----");
+			System.out.println(catinfos[i].getName() + "ì€ í•˜ë£¨ì— " + e + "kcalê°€ í•„ìš”í•´ìš”.");
+			double amount = e/3.93;// ìš°ë¦¬ì• ê¸° ì‚¬ë£Œ ì¹¼ë¡œë¦¬ ê¸°ì¤€ìœ¼ë¡œ í‘œê¸°í•¨(ì•„ì¹´ë‚˜ ê·¸ë˜ìŠ¤ëœë“œ ìº£-gë‹¹ 3.933kcal)
+			System.out.println("ê±´ì‚¬ë£ŒëŠ” í•˜ë£¨ì— " + (int)amount + "g ë§Œí¼ ì£¼ì„¸ìš”.");
+		} // ì†Œìˆ«ì  ë‘ìë¦¬ê¹Œì§€ í• ë¼ê³  ì´ê±° ì“°ë©´ ì˜¤ë¥˜ë‚¨ System.out.printf("ê±´ì‚¬ë£ŒëŠ” í•˜ë£¨ì— %.2f\n", amount + "g ë§Œí¼ ì£¼ì„¸ìš”.");
+	} //ê·¸ë˜ì„œ ì¼ë‹¨ ê°•ì œ í˜•ë³€í™˜ í•´ì„œ ì†Œìˆ«ì  ë²„ë ¤ë²„ë¦¼ã…œã…œ
+		
+    //ì¢…ë£Œ
+	public void printExit() {
+		System.out.println("~ì•ˆë…•íˆê°€ì„¸ìš”~");
+		System.out.println(" ã€€ã€€âˆ§ï¼¿âˆ§");
+		System.out.println("((ï½(Â´ÂªÏ‰Âª)o))");
+		System.out.println("â™ªã€€ ã…£ã€€ ã…£");
+		System.out.println("ã€€â™ª  ã—â€•-ï¼ªÎ¶");
+
+	}
+	
+    //ì˜ˆì™¸ì²˜ë¦¬
+	public void printException() {
+		System.out.println("1~4 ì‚¬ì´ì˜ ìˆ«ìë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.");
+	}
+
 }
-//----------°í¾çÀÌ ÇÏ·çÄ¡ »ç·á ¾ç °è»êÇÏ±â-----------
-//0. ¸Ş´º printMenu
-//1. °í¾çÀÌ Á¤º¸ ÀÔ·Â inputCat
-//2. °í¾çÀÌ Á¤º¸ Ãâ·Â printCat
-//3. °í¾çÀÌ ÇÊ¿ä Ä®·Î¸® Ãâ·Â -> »ç·á ¾ç °è»ê printKcal 
-//3. ÇÁ·Î±×·¥ Á¾·á printExit
+//----------ê³ ì–‘ì´ í•˜ë£¨ì¹˜ ì‚¬ë£Œ ì–‘ ê³„ì‚°í•˜ê¸°-----------
+//0. ë©”ë‰´ printMenu
+//1. ê³ ì–‘ì´ ì •ë³´ ì…ë ¥ inputCat
+//2. ê³ ì–‘ì´ ì •ë³´ ì¶œë ¥ printCat
+//3. ê³ ì–‘ì´ í•„ìš” ì¹¼ë¡œë¦¬ ì¶œë ¥ -> ì‚¬ë£Œ ì–‘ ê³„ì‚° printKcal 
+//3. í”„ë¡œê·¸ë¨ ì¢…ë£Œ printExit
 //-----------------------------------------------------
