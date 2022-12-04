@@ -3,8 +3,8 @@ package com.kh.day07.student;
 public class StudentRun {
 	public static void main(String[] args) {
 		StudentFunction sFunc = new StudentFunction();
-		int input = sFunc.printMenu();
 		End: while (true) {
+			int input = sFunc.printMenu();
 			switch (input) {
 			case 1:
 				sFunc.inputScore();
@@ -15,7 +15,7 @@ public class StudentRun {
 			case 3:
 				sFunc.goodByeMsg();
 				break End;
-			case 4:
+			default:
 				sFunc.exceptionMsg();
 				break;
 			}
