@@ -20,7 +20,7 @@ public class Exam_Read {
 				readByte = is.read();
 				//없으면(:-1) 그만 읽어야해
 				if(readByte == -1) break;
-				System.out.print(readByte);//이프브레이크 없으면 -1이 무한반복됨ㅇㅇ
+				System.out.print((char)readByte);//이프브레이크 없으면 -1이 무한반복됨ㅇㅇ
 			}
 //			for(int i = 0; i <4; i++) {
 //				readByte = is.read();//포문 없으면 맨 앞에 글자만 읽음
