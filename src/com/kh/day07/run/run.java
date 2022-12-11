@@ -8,8 +8,8 @@ import com.kh.day07.oop.Rectangle;
 
 public class run {
     public static void main(String [] args) {
-    //	Exercise_Lotto exLotto = new Exercise_Lotto(); //new를 붙이면 메모리 하나 할당해서 변수한테 주는거다
-    //	exLotto.lottoProgram();
+    	Exercise_Lotto exLotto = new Exercise_Lotto(); //new를 붙이면 메모리 하나 할당해서 변수한테 주는거다
+    	exLotto.lottoProgram();
     	                    //↓생성자!(필드값초기화역할)
     //	Person person = new Person();
     //	person.eat();    //참조변수.멤버

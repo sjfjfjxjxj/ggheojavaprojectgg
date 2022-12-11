@@ -14,6 +14,6 @@ public class Exam_Random {
     	//nextInt(n)+1, 즉 +1로 범위 조정!
     	//ex. 20부터 35 사이의 수 중에 랜덤뽑기: nextInt(16)+20??? 맞넹
     	//ex2. 10부터 23 사이 랜덤뽑기: nextInt(14)+10
-    	}
+    	}//1~45 : 45+1
     }
 }

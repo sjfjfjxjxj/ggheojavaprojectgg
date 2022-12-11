@@ -2,16 +2,16 @@ package com.kh.practice.jeongseok;
 
 import java.util.Scanner;
 
-//num°ªÀÌ ¾ç¼øÁö À½¼øÁö 0ÀÎÁö
-public class A_Three_Three {
+//numï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½
+public class Practice3_3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
     	int num = sc.nextInt();
     	String output = ""; 
     	if (num > 0) {
-    		output = "¾ç¼ö";
+    		output = "ï¿½ï¿½ï¿½";
     	} else if (num <0) {
-    		output ="À½¼ö";
+    		output ="ï¿½ï¿½ï¿½ï¿½";
     	} else {
     		output ="0";
     	}
