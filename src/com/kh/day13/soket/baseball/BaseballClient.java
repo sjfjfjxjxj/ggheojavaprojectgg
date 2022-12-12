@@ -22,22 +22,39 @@ public class BaseballClient {
 		try {
 			socket = new Socket(address, port);
 			System.out.println("클라이언트 소켓을 생성하였습니다.");
-			
+
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
 			dis = new DataInputStream(is);
 			dos = new DataOutputStream(os);
 			System.out.println("게임준비완료");
-			
-			System.out.print("--> ");
-			String input = sc.nextLine();
-			dos.writeUTF(input);
-			///////////////////
-			
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
+
+			while (true) {
+				System.out.print("--> ");
+				String input = sc.nextLine();
+				dos.writeUTF(input);
+				///////////////////
+				String resultMsg = dis.readUTF();
+				System.out.println(resultMsg);// 콘솔창에 보이는 것
+				if(resultMsg.startsWith("3")) { //메세지가 3으로 시작하면!
+					System.out.println("~GAME CLEAR |||| YOU WIN~");
+					break;
+				}
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				dos.close();
+				dis.close();
+				is.close();
+				os.close();
+				socket.close();
+				sc.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
