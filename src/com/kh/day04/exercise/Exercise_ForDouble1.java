@@ -1,4 +1,4 @@
-package com.kh.day04.exercise;
+ package com.kh.day04.exercise;
 //구구단 중첩.. 근데 이제 가로로...
 public class Exercise_ForDouble1 {
     public static void main(String[] args) {
