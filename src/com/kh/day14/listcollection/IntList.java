@@ -1,10 +1,10 @@
 package com.kh.day14.listcollection;
-
+//복습必
 import java.util.Arrays;
 
 public class IntList {
 	private int [] nums; //필드에서 변수선언
-	//private int current; //current = 인덱스값
+	//private int current; //current = 인덱스값. 사이즈 불변
 	private int size; //요소 개수 확인
 	public IntList() {
 		nums = new int[3];//필드초기화 必!
@@ -15,12 +15,12 @@ public class IntList {
 	private void resize() {
 		int array_capacity = nums.length;
 		//용량 꽉찰경우
-		if(size == array_capacity) {
+		if(size == array_capacity) {//용량이 꽉차면
 			//용량 2배로 해줨
 			int new_capacity = array_capacity * 2;
 			//새롭게 배열 만들어줌
-			nums = Arrays.copyOf(nums, new_capacity);
-		}
+			nums = Arrays.copyOf(nums, new_capacity);  
+		}//안에 값이 있으면 고대로 복사해서 배열 길이 늘어날수있는
 		
 	}
 	
