@@ -9,7 +9,9 @@ package com.kh.practice.member.view;
 //			6. 회원탈퇴
 //			0. 프로그램 종료
 //			메뉴 선택 :
-
+//회원조회: 검색하면출력해줌..출력만 해줌(반환형不必)
+//멤버뷰->런->멤버컨트롤러(엠리스트)->런->멤버뷰->사람 
+//요 클래스는 입력받고 출력하는것만해준다
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,6 +33,34 @@ public class MemberView {
 		int value = sc.nextInt();
 		return value;
 	}
+	
+	public Member modifyMember() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("아이디 : ");
+		String memberId = sc.next();
+		System.out.print("비밀번호 : ");
+		String memberPwd = sc.next();
+		System.out.print("이메일 : ");
+		String memberEmail = sc.next();
+		System.out.print("전화번호 : ");
+		String memberPhone = sc.next();
+		System.out.print("주소 : ");
+		sc.nextLine();
+		String memberAdress = sc.nextLine();
+		System.out.print("취미 : ");
+		String memberHobby = sc.next();
+		//여기까지 입력받음
+		//여기서부턴 입력받은거 저장함
+		Member member = new Member();
+		member.setMemberId(memberId);
+		member.setMemberPwd(memberPwd);
+		member.setMemberEmail(memberEmail);
+		member.setMemberPhone(memberPhone);
+		member.setMemberAdress(memberAdress);
+		member.setMemberHobby(memberHobby);
+		return member;
+	}
+	
 /////4. 회원가입///////////
 	public Member inputMember() {
 		Scanner sc = new Scanner(System.in);
@@ -66,17 +96,18 @@ public class MemberView {
 		// 이것드를 컨트롤러로 보낼거야. 리턴 안하면 기껏 인풋받은 멤버라는 변수는 사라져버려
 		return member; // →반환타입은 Member가 될것
 	}
-/////2. 아이디로 조회//////
-	public String inputMemberId() {
+	
+	/////2. 아이디로 조회//////
+	public String inputMemberId(String category) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("검색할 아이디 입력 : ");
+		System.out.println(category + "할 아이디 입력 : ");
 		String memberId = sc.next();// mList에서 검색해서 사용해야해서 리턴해줘
 		return memberId;
 	}
-/////3. 이름으로 조히/////
-	public String inputMemberName() {
+/////3. 이름으로 조회/////
+	public String inputMemberName(String category) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("검색할 이름 입력 : ");
+		System.out.println(category +"할 이름 입력 : ");
 		String memberName = sc.next();
 		return memberName;
 	}
@@ -108,11 +139,17 @@ public class MemberView {
 	}
 	
 	//findMemberId매소드에 출력까지 하면 편한데 mOne.toString() 출력은 여기서 하기로 약속한거야.
-	public void printOneById(Member mOne) {//printOneByIndex 메소드에서 리턴된 값을 받는것
+	public void showOneMember(Member mOne) {//printOneByIndex 메소드에서 리턴된 값을 받는것
 		System.out.println(mOne.toString());
+	}
+	public void displaySuccess(String message) {
+		System.out.println("[처리결과] : " + message);
+	}
+	public void displayError(String message) {
+		System.out.println("[오류발생]" + message);
 	}
 	
-	public void printOneByName(Member mOne) {
-		System.out.println(mOne.toString());
-	}
+//	public void printOneByName(Member mOne) {
+//		System.out.println(mOne.toString());
+//	} 위에 하나로 퉁치면 됨
 }
