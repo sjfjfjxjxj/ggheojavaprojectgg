@@ -22,7 +22,7 @@ public class Exam_SortInsertion {
 		 */
 		int[] arrs = { 2, 5, 4, 1, 3 };
 		for (int i = 1; i < arrs.length; i++) {
-			for (int j = 0; j < arrs.length-1; j++) {
+			for (int j = 0; j < arrs.length-1; j++) { //결국 j < i로 해도 되는건가?! 안됨
 				if (arrs[j] > arrs[j + 1]) {// -왼쪽 오른쪽 비교해서
 					int temp = arrs[j]; // -왼쪽이 더 크면 돌기 시작해
 					arrs[j] = arrs[j + 1]; // -근데 이제 순서는 왼쪽작 오른큰으로
@@ -36,6 +36,7 @@ public class Exam_SortInsertion {
 
 	}
 }
+
 
 
 
